@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ยืนยันการสั่งซื้อ - ClothesShop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        .order-container {
+            width: 100%;
+            max-width: 750px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .success-banner {
+            background-color: #e6f4ea;
+            border: 2px solid #1e8e3e;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: #137333;
+        }
+
+        .success-banner h2 {
+            margin: 0 0 8px 0;
+            font-size: 22px;
+        }
+
+        .success-banner p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .order-card {
+            background: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed #000000;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .order-header h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .order-status {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-box h3 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+            color: #555555;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000000;
+            line-height: 1.4;
+        }
+
+        .item-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eeeeee;
+            padding: 12px 0;
+        }
+
+        .item-row:last-child {
+            border-bottom: none;
+        }
+
+        .item-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .item-details img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .summary-box {
+            border-top: 2px dashed #000000;
+            margin-top: 15px;
+            padding-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+
+        .summary-row.total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn-home {
+            background-color: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 9999px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-home:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/Gemini_Generated_Image_ujiqmmujiqmmujiq-removebg-preview.png" alt="ClothesShop Logo" width="500px" height="auto">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">หน้าแรก</a></li>
+            <li><a href="Products.html">สินค้า</a></li>
+            <li><a href="Products-detail-1.html">รายละเอียดสินค้า</a></li>
+            <li><a href="confirm.html">ติดต่อเรา</a></li>
+            <li><a href="cart.html">ตะกร้าสินค้า</a></li>
+        </ul>
+    </nav>
+
+    <div class="row" style="justify-content: center;">
+        <article style="width: 100%; margin-top: 20px; display: flex; flex-direction: column; align-items: center; padding: 30px;">
+            
+            <div class="order-container">
+                <!-- แบนเนอร์แจ้งเตือนการสั่งซื้อสำเร็จ -->
+                <div class="success-banner">
+                    <h2>✓ ยืนยันการสั่งซื้อสำเร็จ!</h2>
+                    <p>ขอบคุณที่อุดหนุนสินค้ากับ ClothesShop รายละเอียดคำสั่งซื้อของคุณถูกส่งไปยังระบบเรียบร้อยแล้ว</p>
+                </div>
+
+                <!-- การ์ดรายละเอียดคำสั่งซื้อ -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div>
+                            <h2>หมายเลขคำสั่งซื้อ: #CS-2024001</h2>
+                            <p style="margin: 5px 0 0 0; color: #666; font-size: 14px;">วันที่สั่งซื้อ: 24 พฤศจิกายน 2024</p>
+                        </div>
+                        <span class="order-status">ชำระเงินเรียบร้อย</span>
+                    </div>
+
+                    <!-- ข้อมูลการจัดส่ง -->
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <h3>ที่อยู่ในการจัดส่ง</h3>
+                            <p>คุณสมชาย ใจดี<br>123/45 ถนนสุขุมวิท แขวงคลองเตย<br>เขตคลองเตย กรุงเทพมหานคร 10110<br>โทร: 081-234-5678</p>
+                        </div>
+                        <div class="info-box">
+                            <h3>วิธีจัดส่ง & ชำระเงิน</h3>
+                            <p>ขนส่ง: Express Delivery (1-2 วัน)<br>วิธีชำระเงิน: สแกน QR Code (โอนเงินผ่านธนาคาร)</p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-bottom: 10px; font-size: 18px;">รายการสินค้า</h3>
+                    
+                    <!-- รายการสินค้าที่ 1 -->
+                    <div class="item-row">
+                        <div class="item-details">
+                            <img src="img/หมวกสีขาว.jpg" alt="หมวกสีขาว">
+                            <div>
+                                <p style="margin: 0; font-weight: bold;">หมวกสีขาว</p>
+                                <p style="margin: 3px 0 0 0; color: #666; font-size: 14px;">จำนวน: 1 ใบ</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0; font-weight: bold;">70 บาท</p>
+                    </div>
+
+                    <!-- สรุปยอดเงิน -->
+                    <div class="summary-box">
+                        <div class="summary-row">
+                            <span>ราคาสินค้า</span>
+                            <span>70 บาท</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>ค่าจัดส่ง</span>
+                            <span>ฟรี</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>ยอดชำระทั้งสิ้น</span>
+                            <span>70 บาท</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ปุ่มดำเนินการต่อ -->
+                <div class="action-buttons">
+                    <a href="index.html" class="btn-home">กลับสู่หน้าแรก</a>
+                    <a href="Products.html" class="btn-home" style="background-color: #ffffff; color: #000000; border: 2px solid #000000;">เลือกซื้อสินค้าเพิ่ม</a>
+                </div>
+            </div>
+
+        </article>
+    </div>
+
+    <footer>
+        <p>FB Thanawat Bunmepipith</p>
+        <p>email s6906022511144@email.kmunb.ac.th</p>
+    </footer>
+</body>
+</html>
